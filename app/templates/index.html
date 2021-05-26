@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid"
+     style="height: 608px; width:85%; background: #fff; padding: 1.5%;margin-top: 20px; border: none; -webkit-box-shadow: 4px 4px 8px 0px rgba(50, 50, 50, 0.49);-moz-box-shadow:    4px 4px 8px 0px rgba(50, 50, 50, 0.49);box-shadow:         4px 4px 8px 0px rgba(50, 50, 50, 0.49);">
+
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+        <h1>
+        <center>Witaj w RSA24 Files</center>
+            <br>
+    </h1>
+
+                 {% if get_user != "RSA_ADMIN"%}
+            <div><center></center></div>
+               {% else %}
+              <h3>
+        <center>Dodaj nowy katalog:</center>
+    </h3>
+            <div class="col">
+                <form action="/" method="POST">
+                    <p><input size="40px" class="form-control" type="text" placeholder="Wpisz tutaj nazwę nowego katalogu." name="name" required="required"/></p>
+            </div>
+            <div class="col" style="float:left">
+                <input type="submit" name="name" class="btn btn-primary" onClick="refresh" value="Dodaj katalog">
+                {% endif %}
+            </div>
+        </div>
+        </form>
+        <br>
+
+        <br>
+        <div class="col-sm">
+            <h3>Lista katalogów</h3>
+
+            <table class="table table-striped">
+                    <thead class="table-secondary">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Nazwa</th>
+                </tr>
+                </thead>
+                {% for row in displayAllDirectory %}
+
+                <td></td>
+                <form name="path" action="" method="post">
+
+                    <td><div class="tdhover"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="32"  fill="orange" class="bi bi-folder" viewBox="0 0 16 16">
+<path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z"/>
+</svg><a style="text-decoration: none; color:black; margin-left: 10px;"
+                            href="/directory/{{row.id}}">{{row.Name}}</a></div></td>
+                </form>
+                </tr>
+                {% endfor %}
+            </table>
+
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+

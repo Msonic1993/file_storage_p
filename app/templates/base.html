@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>File storage</title>
+</head>
+<body style="background:#e4e5e6">
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+
+        <a class="navbar-brand" href="/">RSA24 Files</a>
+        <img class="logomain" src="/static/logo.png" alt="">
+        </a>
+        <div id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="    display: block;">
+                <li><a href="https://gateway.dev.rsa24.eu/">Wróć do bramki</a></li>
+            </ul>
+
+        </div>
+ <ul class="nav navbar-nav navbar-right">
+      <li><a href="https://auth.dev.rsa24.eu/auth/realms/RSA/protocol/openid-connect/logout?redirect_uri=http%3A%2F%2Fgateway.dev.rsa24.eu%2F&response_type=code&scope=openid">Wyloguj ({{get_user}})</a></li>
+    </ul>
+<!--        <form class="form-inline" style="display:flex;">-->
+
+<!--            <button class="btn btn-outline-success my-2 my-sm-0" style="    margin-right: 6px;" type="submit">Szukaj-->
+<!--            </button>-->
+<!--            <input class="form-control mr-sm-2" type="search" placeholder="Wyszukaj pliki" aria-label="Search">-->
+<!--        </form>-->
+    </nav>
+</header>
+{% block content %}{% endblock %}
+
+</div>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="{{url_for('static', filename='modal.js')}}"></script>
+<script src="{{url_for('static', filename='tablefilter.js')}}"></script>
+
+
+</body>
+</html>
